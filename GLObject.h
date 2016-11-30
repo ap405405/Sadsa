@@ -86,6 +86,7 @@ public:
 
 	void rotateCenteredZAxis(const float& angle_degree)
 	{
+		//model_matrix_ = glm::translate(...) * glm::rotate(...) * glm::translate(...) * model_matrix_;
 		model_matrix_ = glm::translate(center_) * glm::rotate(glm::mat4(), glm::radians(angle_degree), glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(-center_) * model_matrix_;
 
 	}
