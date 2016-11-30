@@ -41,6 +41,22 @@ public:
 
 	void turnLeft()
 	{
+		/*const glm::mat4 rot_mat = ...;
+
+		glm::vec4 temp(dir_.x, dir_.y, dir_.z, 0.0f);
+
+		temp = ...;
+
+		dir_.x = temp.x;
+		dir_.y = temp.y;
+
+		car_body.rotateCenteredZAxis(turn_coeff_);
+
+		float x = 1.0;
+
+		if (glm::dot(vel_, dir_) < 0.0) x = -1.0;
+
+		vel_ = dir_ * sqrt(glm::dot(vel_, vel_)) * x;*/
 		const glm::mat4 rot_mat = glm::rotate(glm::mat4(), glm::radians(turn_coeff_), glm::vec3(0, 0, 1));;
 
 		glm::vec4 temp(dir_.x, dir_.y, dir_.z, 0.0f);
@@ -61,8 +77,7 @@ public:
 
 	void turnRight()
 	{
-		const float turn_coeff_ = -1.0f;
-		//car_body.model_matrix_ = glm::translate(+vel_) * glm::rotate(glm::mat4(), glm::radians(turn_coeff_), glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(-vel_) *car_body.model_matrix_;
+		
 		const glm::mat4 rot_mat = glm::rotate(glm::mat4(), glm::radians(turn_coeff_), glm::vec3(0, 0, 1));;
 
 		glm::vec4 temp(dir_.x, dir_.y, dir_.z, 0.0f);
@@ -72,7 +87,7 @@ public:
 		dir_.x = temp.x;
 		dir_.y = temp.y;
 
-		car_body.rotateCenteredZAxis(turn_coeff_);
+		car_body.rotateCenteredZAxis(-1.0f);
 
 		float x = 1.0;
 
